@@ -29,6 +29,8 @@ if ('development' == app.get('env')) {
 }
 app.get('/', routes.index);  // Route for home page
 app.get('/users', user.list);// Route for users list and delete user
+app.put('/users', user.update);
+app.del('/users/:id', user.delete);
 app.post('/users', user.add_user);// Route to add user
 
 http.createServer(app).listen(app.get('port'), function() {
