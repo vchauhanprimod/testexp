@@ -32,6 +32,11 @@ app.get('/users', user.list);// Route for users list and delete user
 app.put('/users', user.update);
 app.del('/users/:id', user.delete);
 app.post('/users', user.add_user);// Route to add user
+app.use(function (req, res) {
+    console.log("fjh");
+  res.set({'status':'not found'});
+  res.send(404);
+});
 
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
